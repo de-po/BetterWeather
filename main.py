@@ -37,10 +37,10 @@ def format_response1(weather):
         feels_like = weather['main']['feels_like']
         humidity = weather['main']['humidity']
 
-        final_str = '%s TODAY: \n\n Conditions: %s\n Feels Like: %s\n Humidity: %s' % (name, desc, feels_like, humidity)
+        final_str1 = '%s TODAY: \n\n Conditions: %s\n Feels Like: %s\n Humidity: %s' % (name, desc, feels_like, humidity)
 
     except:
-        final_str = 'Invalid Entry. Please Try Again.'
+        final_str1 = 'Invalid Entry. Please Try Again.'
 
     return final_str
 
