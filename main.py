@@ -6,13 +6,20 @@ HEIGHT = 1000
 WIDTH = 1000
 
 
-# api.openweathermap.org/data/2.5/forecast?q={city name},{country code}
-# 1504f3d5dfa23a3762a192c52e066130
+
+def get_weather(city):
+    weather_key = ''
+    url = "https://api.openweathermap.org/data/2.5/weather"
+    params = {'APPID': weather_key, 'q': city, 'units': 'imperial'}
+    response = requests.get(url, params=params)
+    print(response.json())
+    weather = response.json()
+
+    label4['text'] = format_response(weather)
+    label['text'] = format_response1(weather)
 
 def format_response(weather):
     try:
-        name = weather['name']
-        desc = weather['weather'][0]['description']
         temp = weather['main']['temp']
 
         final_str = ' %s °F' % temp
@@ -27,7 +34,6 @@ def format_response1(weather):
     try:
         name = weather['name']
         desc = weather['weather'][0]['description']
-        temp = weather['main']['temp']
         feels_like = weather['main']['feels_like']
         humidity = weather['main']['humidity']
 
@@ -37,18 +43,6 @@ def format_response1(weather):
         final_str = 'Invalid Entry. Please Try Again.'
 
     return final_str
-
-
-def get_weather(city):
-    weather_key = '1504f3d5dfa23a3762a192c52e066130'
-    url = "https://api.openweathermap.org/data/2.5/weather"
-    params = {'APPID': weather_key, 'q': city, 'units': 'imperial'}
-    response = requests.get(url, params=params)
-    print(response.json())
-    weather = response.json()
-
-    label4['text'] = format_response(weather)
-    label['text'] = format_response1(weather)
 
 
 root = tk.Tk()
