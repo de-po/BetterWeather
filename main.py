@@ -25,6 +25,7 @@ def format_response(weather):
         final_str = ' %s °F' % temp
 
     except:
+        
         final_str = ''
 
     return final_str
@@ -40,9 +41,10 @@ def format_response1(weather):
         final_str1 = '%s TODAY: \n\n Conditions: %s\n Feels Like: %s\n Humidity: %s' % (name, desc, feels_like, humidity)
 
     except:
+        
         final_str1 = 'Invalid Entry. Please Try Again.'
 
-    return final_str
+    return final_str1
 
 
 root = tk.Tk()
